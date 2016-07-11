@@ -23,7 +23,7 @@ finally:
 
 total_txt = ghost.find_element_by_id("total").text
 total_no = int(total_txt.replace('/', ''))
-print "page number total is %d" % total_no
+print "page number total(init)is %d" % total_no
 
 ghost.save_screenshot("./tmp/mypage.png")
 
@@ -31,7 +31,8 @@ table = ghost.find_elements_by_class_name("tab08")
 
 total_page = ghost.find_element_by_id('total').text
 print total_page
-
+total_no = int(total_page.replace('/', ''))
+print "page number total(now) is %d" % total_no
 
 # f = open("record.txt","wt+",encoding="UTF-8")
 
@@ -50,7 +51,7 @@ def get_transaction_from_page(output_file, driver,c_pg,max_pg):
     print "list length%d" % leng
     for i in range(0, leng):
         line = []
-        print i
+        #print i
         s = {}
         # s['name'] = stock[i].text
         line.append(stock[i].text)
@@ -94,11 +95,11 @@ def get_transaction_from_page(output_file, driver,c_pg,max_pg):
 
 file = codecs.open("record.txt", "w", "utf-8")
 
-for j in range(0, 3):
+for j in range(0, total_no):
     current_page = ghost.find_element_by_css_selector('.hover.num.on').text
     print "current page:" + current_page
     k = 0
-    get_transaction_from_page(file, ghost,int(current_page),3)
+    get_transaction_from_page(file, ghost,int(current_page),total_no)
 
 ghost.close()
 file.close()
