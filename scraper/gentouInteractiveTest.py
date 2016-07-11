@@ -37,7 +37,7 @@ print total_page
 
 
 
-def get_transaction_from_page(output_file, driver):
+def get_transaction_from_page(output_file, driver,c_pg,max_pg):
     # type: (object, object) -> object
     global element
     line = []
@@ -71,17 +71,22 @@ def get_transaction_from_page(output_file, driver):
         # f.write(''.join(map(json.dumps,stocks)))
         output_file.write(','.join(line))
         output_file.write("###\n")
-    next_bt = driver.find_element_by_css_selector('#next')
     # actions = ActionChains(driver).click(next_bt)
-    page = "./tmp/page%d.png" % j
+    page = "./tmp/page%d.png" % c_pg
     driver.save_screenshot(page)
+    new_page = c_pg + 1
+    if new_page > max_pg:
+        print "<<<Reach max, return"
+        return
+
+
+    next_bt = driver.find_element_by_css_selector('#next')
     next_bt.click()
     # driver.implicitly_wait(6)
-    new_page = int(current_page) + 1
     print ">>>....Waiting newpage: page%d" % new_page
     wait = WebDriverWait(driver, 10)
     element = wait.until(EC.text_to_be_present_in_element((By.CSS_SELECTOR, '.hover.num.on'), str(new_page)))
-    page = "./tmp/pageexit%d.png" % j
+    page = "./tmp/pageexit%d.png" % c_pg
     driver.save_screenshot(page)
     print "saved %s" % page
     print "<<<Done Waiting"
@@ -93,7 +98,7 @@ for j in range(0, 3):
     current_page = ghost.find_element_by_css_selector('.hover.num.on').text
     print "current page:" + current_page
     k = 0
-    get_transaction_from_page(file, ghost)
+    get_transaction_from_page(file, ghost,int(current_page),3)
 
 ghost.close()
 file.close()
