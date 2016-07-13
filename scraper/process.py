@@ -4,6 +4,18 @@ import re
 
 re_p = re.compile(ur'\b(\d+[0-9-_\.]*\d+)\b(?![-_\.])', re.UNICODE)
 
+
+def get_dg(inp):
+    output = ""
+    matchObj = re_p.search(inp)
+    if matchObj:
+        output = matchObj.group(1)
+    else:
+        print "No match!!"
+
+    return output
+
+
 def process(l):
     #print l
     lst = l.split(',')
@@ -15,16 +27,17 @@ def process(l):
         scode =  matchObj.group(2)
     else:
        print "No match!!"
-    p = lst[1]
-    re_p = re.compile(ur'\b(\d+[0-9-_\.]*\d+)\b(?![-_\.])', re.UNICODE)
-    #re_p = re.compile(ur'平均', re.UNICODE)
-    matchObj = re_p.search( p)
-    if matchObj:
-        buy_price =  matchObj.group(1)
-    else:
-       print "No match!!"
 
-    print "name %s, code %s ,buy_price%s"%(sname,scode,buy_price)
+    #price
+    bp = get_dg(lst[1])
+    sp = get_dg(lst[3])
+
+    #date
+    dt_b = get_dg(lst[2])
+    dt_s = get_dg(lst[4])
+
+
+    print "name %s, code %s ,bp%s, dtb %s, sp %s,dts %s"%(sname,scode,bp,dt_b,sp,dt_s)
     #print len(lst),n
     pass
 
