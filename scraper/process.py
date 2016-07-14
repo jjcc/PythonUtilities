@@ -1,5 +1,6 @@
 # -*- coding: UTF-8 -*-
 import re
+import time
 
 re_p = re.compile(ur'([-]*\d+[0-9-_\.]*\d+)\b(?![-_\.])', re.UNICODE)
 
@@ -38,7 +39,7 @@ def process(l):
 
     dbp = float(bp)
     dsp = float(sp)
-    dper = round((dsp-dbp)*100/dbp, 2)
+    dper = round((dsp - dbp) * 100 / dbp, 2)
 
     # date
     dt_b = get_dg(lst[2])
@@ -49,18 +50,42 @@ def process(l):
     # percentage
     per = get_dg(lst[6])
 
-    print "name %s, code %s ,bp %s, dtb %s, sp %s,dts %s, q %s, per %s, cal %f" % (sname, scode, bp, dt_b, sp, dt_s, q, per, dper)
+    print "name %s, code %s ,bp %s, dtb %s, sp %s,dts %s, q %s, per %s, cal %f" % (
+    sname, scode, bp, dt_b, sp, dt_s, q, per, dper)
     # print len(lst),n
     pass
 
 
-fname = "record.txt"
+def process_epoch(l):
+    """
+    convert the epoch to date
+    :param l:
+    :return:
+    """
 
-f = open(fname)
+    regex = re.compile(ur'(\d+)', re.UNICODE)
+    m = regex.search(l)
+    epoch = m.group(0)
+    epochf = int(epoch) / 1000
+
+    v = time.localtime(epochf)
+    #print v
+    dt = time.strftime('%Y-%m-%d', time.localtime(epochf))
+    print dt, "wkday", v.tm_wday
+    pass
+
+
+fname = "record.txt"
+fname_epoch = "epoches.txt"
+
+# f = open(fname)
+f = open(fname_epoch)
 count = 0
 for line in iter(f.readline, b''):
     print count,
-    process(line)
+    #     process(line)
+
+    process_epoch(line)
     count += 1
 
     # while (line = f.readline()):
