@@ -49,10 +49,10 @@ def split_fields(fields):
         if idx < 0:
             break
         hdr = tl[0:idx].strip()
-        tl = tl[idx+1:-1]
+        tl = tl[idx+1:-1].lstrip()
         print "h:%s,t:%s"%(hdr,tl)
         if tl.find("iif") == 0:
-            idx = tl.find(")")
+            idx = tl.find(")") #TODO: should have a subroutine to deal with multiple iif
             tl = tl[idx:-1]
     pass
 
@@ -69,6 +69,6 @@ GROUP BY group;
     print "Select: %s, From:%s, Where:%s, Group:%s"%(result[KEY_S], result[KEY_F], result[KEY_W],result[KEY_G])
 
     flds = '''
-    column1,column2,colunm3,iif(a,b,c)
+    column1, column2, colunm3, iif(a,b,c) 
     '''
     split_fields(flds)
