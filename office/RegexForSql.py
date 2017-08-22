@@ -42,18 +42,18 @@ def split_fields(fields):
     split fields into a list of field
     '''
     idx = 0
-    tl = fields
+    tail = fields
     while True:
 
-        idx = tl.find(",")
+        idx = tail.find(",")
         if idx < 0:
             break
-        hdr = tl[0:idx].strip()
-        tl = tl[idx+1:-1].lstrip()
-        print "h:%s,t:%s"%(hdr,tl)
-        if tl.find("iif") == 0:
-            idx = tl.find(")") #TODO: should have a subroutine to deal with multiple iif
-            tl = tl[idx:-1]
+        hdr = tail[0:idx].strip()
+        tail = tail[idx+1:-1].lstrip()
+        print "h:%s,t:%s"%(hdr,tail)
+        if tail.find("iif") == 0:
+            idx = tail.find(")") #TODO: should have a subroutine to deal with multiple iif
+            tail = tail[idx:-1]
     pass
 
 
