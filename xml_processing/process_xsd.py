@@ -115,4 +115,15 @@ if __name__ == "__main__":
         process(n[1], n[0])
 
         count += 1
-    print "done:" + count
+    print "done:,count %d"%count
+    for k, v in typeNameHash.iteritems():
+        listString = "Arrays.asList("
+        for e in v[:-1]:
+            listString += "\"" + e+ "\","
+        listString += "\"" + v[-1]+ "\"));"    
+
+
+
+        print "m.put(\"%s\", %s"%(k, listString)
+
+    print "done\n"	
