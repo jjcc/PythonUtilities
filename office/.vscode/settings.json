@@ -1,0 +1,8 @@
+{
+    "python.pythonPath": "E:/Program Files/Anaconda2/python",
+    "python.jupyter.defaultKernel": "",
+    "python.jupyter.startupCode": [
+        "%matplotlib inline"
+    ],
+    "python.jupyter.appendResults": true
+}
