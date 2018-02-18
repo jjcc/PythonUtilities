@@ -4,26 +4,7 @@ import pymustache
 
 
 
-count = 0
-def populate_mustache_item (x,bag):
-    '''
-    populate one item from a symbe_name to a dictionary for mustache template
-    :param x:
-    :return:
-    '''
-    global count
-    # datestring = datetime.date.today().strftime("%Y%m%d")
-    # m = re.match(r"\((\w+)\)", x)
-    # if (m ):
-    #     sy = m.group(1)
-    #     k1 = "s%d"%count
-    #     k2 = "img%d"%count
-    #     image_name= sy + datestring + ".gif"
-    #     bag[k1] = x
-    #     bag[k2] = image_name
-    #     print()
-    generate_mustache_map(x, count, bag)
-    count += 1
+
 
 def generate_mustache_map(symble_name, count, mdict):
     '''
