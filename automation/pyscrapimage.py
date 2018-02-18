@@ -40,13 +40,17 @@ def get_image_by_url( browser, stock):
         imgn = img.get_attribute("src")
         if  not re.search(chart_seg,imgn):
            continue
-        print("match" + imgn)
+        stock_symbolname = img.find_elements_by_xpath("parent::*")[0].text
+        m = re.match(r"\((\w+)\)", stock_symbolname)
+        stock_symbol = ""
+        if (m):
+            stock_symbol = m.group(1)
+        print("match" + imgn + ", name:" + stock_symbolname + ",symbol:" + stock_symbol )
         count += 1
     #    with urllib.request.urlopen(imgn) as url:
     #        with open("data/temp%d.gif"%count , 'wb') as f:
     #            f.write(url.read())
 
-    browser.quit()
 
 
 # get all of the titles for the financial values
@@ -74,3 +78,4 @@ def get_image_by_url( browser, stock):
 #    print(title + ': ' + value)
 if __name__ == "__main__":
     get_image_by_url(browser,stock1)
+    browser.quit()
