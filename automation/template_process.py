@@ -36,3 +36,18 @@ def generate_output( file_in,file_out, m_dict):
 
     pass
 
+def mod_dict(bag,prefix):
+    '''
+    add prefix to image part of a mustache dictionary. The prefix normally is a folder name with date information
+    :param bag:
+    :param prefix:
+    :return:
+    '''
+    bag_mod = {}
+    for k, v in bag.items():
+        #print("key:%s,value:%s" % (k, v))
+        if re.search(r"img", k):
+            bag_mod[k] = prefix + v
+        else:
+            bag_mod[k] = v
+    return bag_mod
