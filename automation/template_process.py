@@ -15,9 +15,13 @@ def generate_mustache_map(symble_name, count, mdict):
     :return:
     '''
     datestring = datetime.date.today().strftime("%Y%m%d")
-    m = re.match(r"\((\w+)\)", symble_name)
+    m = re.match(r"\(([\w|\$]+)\)", symble_name)
     if (m ):
         sy = m.group(1)
+        if sy.find('$') != -1:
+            sy = sy.replace("$","x")
+    #else:
+    #    sy = symble_name
         ks = "s%d"%count
         kimg = "img%d"%count
         image_name= sy + datestring + ".gif"
