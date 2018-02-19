@@ -6,6 +6,7 @@ from selenium.common.exceptions import TimeoutException
 import re
 import urllib.request
 import datetime
+import time
 
 from  template_process import generate_output , mod_dict, generate_mustache_map
 
@@ -88,6 +89,7 @@ def get_image_by_url( browser, stock,dir = ""):
 #for title, value in zip(titles, values):
 #    print(title + ': ' + value)
 if __name__ == "__main__":
+    t0 = time.time()
     #prepare directory
     import pathlib
     datestring = datetime.date.today().strftime("%Y%m%d")
@@ -117,11 +119,11 @@ if __name__ == "__main__":
     mycount = 0
     for l in links:
         print("title:" + l["title"] + ",url:" + l["url"])
-        if mycount > 4:
-            break
-        if mycount < 2:
-            mycount +=1
-            continue
+        # if mycount > 4:
+        #     break
+        # if mycount < 2:
+        #     mycount +=1
+        #     continue
         stock1 = l["url"]
         list = get_image_by_url(browser,stock1, target_dir)
         bag = {}
@@ -134,3 +136,6 @@ if __name__ == "__main__":
     generate_output("data/templateall.html","data/outputall.html",links,"links")
     # bag2 = mod_dict(bag,"20180218/")
 
+    t1 = time.time()
+    total = t1 - t0
+    print("duration:" + str(total) )
