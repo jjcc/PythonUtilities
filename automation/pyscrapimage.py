@@ -5,6 +5,7 @@ from selenium.webdriver.support import expected_conditions as EC
 from selenium.common.exceptions import TimeoutException
 import re
 import urllib.request
+import datetime
 
 chrome_path = r"E:\Software\ChromeDriver\chromedriver.exe"
 #target_url =
@@ -29,6 +30,7 @@ def get_image_by_url( browser, stock):
     browser.get(stock)
     # wait up to 10 seconds for page to load
     timeout = 10
+    datestring = datetime.date.today().strftime("%Y%m%d")
     try:
         WebDriverWait(browser, timeout).until(EC.visibility_of_element_located((By.XPATH, "/html/body/table[4]/tbody/tr/td[1]/table/tbody/tr[3]/td[3]/img")))
     except TimeoutException:
@@ -47,9 +49,10 @@ def get_image_by_url( browser, stock):
             stock_symbol = m.group(1)
         print("match" + imgn + ", name:" + stock_symbolname + ",symbol:" + stock_symbol )
         count += 1
-    #    with urllib.request.urlopen(imgn) as url:
-    #        with open("data/temp%d.gif"%count , 'wb') as f:
-    #            f.write(url.read())
+        image_name= stock_symbol + datestring + ".gif"
+        with urllib.request.urlopen(imgn) as url:
+            with open(image_name , 'wb') as f:
+                f.write(url.read())
 
 
 
@@ -77,5 +80,27 @@ def get_image_by_url( browser, stock):
 #for title, value in zip(titles, values):
 #    print(title + ': ' + value)
 if __name__ == "__main__":
-    get_image_by_url(browser,stock1)
-    browser.quit()
+    #get_image_by_url(browser,stock1)
+
+    ##Generate a json file of map list for links/text
+    # browser.get("http://www.investertech.com/")
+    # aa = browser.find_element_by_css_selector("[color='#ff0000']")
+    # bb = aa.find_elements_by_xpath(".//a")
+    # links = []
+    # for i in bb:
+    #     print("URL#" + i.get_attribute("href") + ",Title#" + i.text)
+    #     link = { "title":i.text, "url":i.get_attribute("href")}
+    #     links.append(link)
+    # browser.quit()
+    #
+    # import json
+    # with open('data/links.json',"w") as fout:
+    #     json.dump(links, fout)
+    import json
+    with open('data/links.json',"r") as fin:
+         links = json.load( fin)
+
+    for l in links:
+        print("title:" + l["title"] + ",url:" + l["url"])
+
+
