@@ -46,7 +46,7 @@ def get_image_by_url( browser, stock,dir = ""):
         if  not re.search(chart_seg,imgn):
            continue
         stock_symbolname = img.find_elements_by_xpath("parent::*")[0].text
-        m = re.match(r"\(([\w+|\$])\)", stock_symbolname)
+        m = re.match(r"\(([\w|\$]+)\)", stock_symbolname)
         stock_symbol = ""
         if (m):
             stock_symbol = m.group(1)
@@ -119,6 +119,9 @@ if __name__ == "__main__":
         print("title:" + l["title"] + ",url:" + l["url"])
         if mycount > 4:
             break
+        if mycount < 2:
+            mycount +=1
+            continue
         stock1 = l["url"]
         list = get_image_by_url(browser,stock1, target_dir)
         bag = {}
