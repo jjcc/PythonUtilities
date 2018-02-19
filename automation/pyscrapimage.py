@@ -20,7 +20,7 @@ browser = webdriver.Chrome(chrome_path)
 
 
 
-def get_image_by_url( browser, stock):
+def get_image_by_url( browser, stock,dir = ""):
     '''
     get images from a url in investertech.com
     :param browser:
@@ -50,6 +50,7 @@ def get_image_by_url( browser, stock):
         print("match" + imgn + ", name:" + stock_symbolname + ",symbol:" + stock_symbol )
         count += 1
         image_name= stock_symbol + datestring + ".gif"
+        image_name = dir + image_name
         with urllib.request.urlopen(imgn) as url:
             with open(image_name , 'wb') as f:
                 f.write(url.read())
@@ -80,8 +81,12 @@ def get_image_by_url( browser, stock):
 #for title, value in zip(titles, values):
 #    print(title + ': ' + value)
 if __name__ == "__main__":
-    #get_image_by_url(browser,stock1)
-
+    import pathlib
+    datestring = datetime.date.today().strftime("%Y%m%d")
+    pathlib.Path('data/' + datestring).mkdir(parents=True, exist_ok=True)
+    target_dir = 'data/' + datestring + '/'
+    get_image_by_url(browser,stock1, target_dir)
+    browser.quit()
     ##Generate a json file of map list for links/text
     # browser.get("http://www.investertech.com/")
     # aa = browser.find_element_by_css_selector("[color='#ff0000']")
@@ -91,11 +96,12 @@ if __name__ == "__main__":
     #     print("URL#" + i.get_attribute("href") + ",Title#" + i.text)
     #     link = { "title":i.text, "url":i.get_attribute("href")}
     #     links.append(link)
-    # browser.quit()
     #
     # import json
     # with open('data/links.json',"w") as fout:
     #     json.dump(links, fout)
+
+    ##load json into a list
     import json
     with open('data/links.json',"r") as fin:
          links = json.load( fin)

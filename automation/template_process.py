@@ -25,10 +25,18 @@ def generate_mustache_map(symble_name, count, mdict):
         mdict[kimg] = image_name
     return
 
-def generate_output( file_in,file_out, m_dict):
+def generate_output( file_in,file_out, m_dict,toptag="bag"):
+    '''
+    Generate output file
+    :param file_in:
+    :param file_out:
+    :param m_dict: rendering data, could be dictionary or list
+    :param toptag: the root tag inside tempalte
+    :return:
+    '''
     with open(file_in,"r") as fi:
         template = fi.read()
-    context = {"bag":m_dict}
+    context = {toptag:m_dict}
     with open( file_out,"w") as fo:
         compiled_template = pymustache.compiled(template)
         rendered = compiled_template.render(context)
