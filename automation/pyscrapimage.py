@@ -12,7 +12,7 @@ from  template_process import generate_output , mod_dict, generate_mustache_map
 
 chrome_path = r"E:\Software\ChromeDriver\chromedriver.exe"
 #target_url =
-stock1 = "http://www.investertech.com/tkchart/tkchart.asp?logo=&home=/default.asp&banner=&stkname=MSFT+INTC+DELL+CSCO+JDSU+ORCL+AMAT+GOOG+IBM+BRCM+AAPL+SYMC"
+#stock1 = "http://www.investertech.com/tkchart/tkchart.asp?logo=&home=/default.asp&banner=&stkname=MSFT+INTC+DELL+CSCO+JDSU+ORCL+AMAT+GOOG+IBM+BRCM+AAPL+SYMC"
 
 
 #define driver
@@ -131,6 +131,8 @@ if __name__ == "__main__":
         bag2 = mod_dict(bag,datestring+"/")
         l["bag"] = bag2
         mycount +=1
+        #if mycount > 6:
+        #    break
     browser.quit()
 
     generate_output("data/templateall.html","data/outputall.html",links,"links")

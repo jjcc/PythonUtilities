@@ -40,7 +40,9 @@ def generate_output( file_in,file_out, m_dict,toptag="bag"):
     '''
     with open(file_in,"r") as fi:
         template = fi.read()
-    context = {toptag:m_dict}
+
+    datestring = datetime.date.today().strftime("%Y-%m-%d")
+    context = {toptag:m_dict,"date":datestring}
     with open( file_out,"w") as fo:
         compiled_template = pymustache.compiled(template)
         rendered = compiled_template.render(context)
