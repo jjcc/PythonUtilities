@@ -4,19 +4,31 @@ from selenium.webdriver.support.ui import WebDriverWait
 from selenium.webdriver.support import expected_conditions as EC
 from selenium.common.exceptions import TimeoutException
 import re
-import urllib.request
+import urllib3
 import datetime
 import time
+from selenium.webdriver.remote.webelement import WebElement
+from selenium.webdriver.common.keys import Keys
 
 from  template_process import generate_output , mod_dict, generate_mustache_map
+
+import platform
 
 chrome_path = r"E:\Software\ChromeDriver\chromedriver.exe"
 #target_url =
 #stock1 = "http://www.investertech.com/tkchart/tkchart.asp?logo=&home=/default.asp&banner=&stkname=MSFT+INTC+DELL+CSCO+JDSU+ORCL+AMAT+GOOG+IBM+BRCM+AAPL+SYMC"
 
+webdriver.DesiredCapabilities.PHANTOMJS['phantomjs.page.customHeaders.Accept-Language'] = 'en-US,en'
+webdriver.DesiredCapabilities.PHANTOMJS['phantomjs.page.customHeaders.User-Agent'] \
+    = 'Mozilla/5.0 (Windows NT 10.0; Win64; x64; rv:47.0) Gecko/20100101 Firefox/47.0'
+if platform.system() == 'Linux':
+    phantom_location = '/usr/local/bin/phantomjs'
+else:
+    phantom_location = 'E:/software/phantomjs-2.1.1-windows/bin/phantomjs.exe'
+browser = webdriver.PhantomJS(executable_path=phantom_location)
 
 #define driver
-browser = webdriver.Chrome(chrome_path)
+#browser = webdriver.Chrome(chrome_path)
 #launch browser
 #browser.get("http://ottawa.craigslist.ca")
 
@@ -58,9 +70,11 @@ def get_image_by_url( browser, stock,dir = ""):
         count += 1
         image_name= stock_symbol + datestring + ".gif"
         image_name = dir + image_name
-        with urllib.request.urlopen(imgn) as url:
-            with open(image_name , 'wb') as f:
-                f.write(url.read())
+
+        http = urllib3.PoolManager()
+        #r = http.request('GET', imgn, preload_content=False)
+        with  http.request('GET', imgn, preload_content=False) as resp, open(image_name , 'wb') as f:
+            f.write(resp.data)
         stock_list.append(stock_symbolname)
     return stock_list
 
@@ -91,9 +105,14 @@ def get_image_by_url( browser, stock,dir = ""):
 if __name__ == "__main__":
     t0 = time.time()
     #prepare directory
-    import pathlib
+    #import pathlib
+    try:
+        from pathlib import Path
+    except ImportError:
+        from pathlib2 import Path  # python 2 backport
+
     datestring = datetime.date.today().strftime("%Y%m%d")
-    pathlib.Path('data/' + datestring).mkdir(parents=True, exist_ok=True)
+    Path('data/' + datestring).mkdir(parents=True, exist_ok=True)
     target_dir = 'data/' + datestring + '/'
 
     import json
