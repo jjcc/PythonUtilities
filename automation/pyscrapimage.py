@@ -134,10 +134,21 @@ if __name__ == "__main__":
         #if mycount > 6:
         #    break
     browser.quit()
-
-    generate_output("data/templateall.html","data/outputall.html",links,"links")
+    output_file = "data/" + datestring + ".html"
+    generate_output("data/templateall.html",output_file,links,"links")
     # bag2 = mod_dict(bag,"20180218/")
 
     t1 = time.time()
     total = t1 - t0
     print("duration:" + str(total) )
+
+    place_holder = "<!-- ph -->"
+    datestring_inmain = datetime.date.today().strftime("%Y-%m-%d")
+    replacing = "<div class='row'><a href='%s.html'>%s</a></div>\n"%(datestring,datestring_inmain) + place_holder
+
+    with open ("data/main2.html","r") as main_f:
+        main_data = main_f.read()
+    new_main = main_data.replace(place_holder, replacing)
+    #print(new_main)
+    with open ("data/main2.html","w") as output_f:
+        output_f.write(new_main)
