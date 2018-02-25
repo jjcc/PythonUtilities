@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta name="description" content="">
+    <meta name="author" content="">
+    <title>Stock Image</title>
+    <link href="vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
+    <link href="css/thumbnail-gallery.css" rel="stylesheet">
+</head>
+<body>
+
+<!-- Navigation -->
+<nav class="navbar navbar-expand-lg navbar-dark bg-dark fixed-top">
+    <div class="container">
+        <a class="navbar-brand" href="#">Main stock and index graph</a>
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarResponsive">
+            <ul class="navbar-nav ml-auto">
+                <li class="nav-item active">
+                    <a class="nav-link" href="#">Home
+                        <span class="sr-only">(current)</span>
+                    </a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="#">About</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="#">Services</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="#">Contact</a>
+                </li>
+            </ul>
+        </div>
+    </div>
+</nav>
+
+
+
+<!-- Page Content -->
+<div class="container">
+    <h1 class="text-center">{{date}}</h1>
+    {{#links}}
+  <h2 class="my-4 text-center text-lg-left">{{title}}</h2>
+
+    <div class="row text-center text-lg-left">
+        <table>{{#bag}}
+            <tr>
+                <td><b>{{cnt0}}.</b>{{s0}}<br><img src="{{img0}}" alt=""></td>
+                <td><b>{{cnt1}}.</b>{{s1}}<br><img src="{{img1}}" alt=""></td>
+                <td><b>{{cnt2}}.</b>{{s2}}<br><img src="{{img2}}" alt=""></td>
+            </tr>
+            <tr>
+                <td><b>{{cnt3}}.</b>{{s3}}<br><img src="{{img3}}" alt=""></td>
+                <td><b>{{cnt4}}.</b>{{s4}}<br><img src="{{img4}}" alt=""></td>
+                <td><b>{{cnt5}}.</b>{{s5}}<br><img src="{{img5}}" alt=""></td>
+            </tr>
+            <tr>
+                <td><b>{{cnt6}}.</b>{{s6}}<br><img src="{{img6}}" alt=""></td>
+                <td><b>{{cnt7}}.</b>{{s7}}<br><img src="{{img7}}" alt=""></td>
+                <td><b>{{cnt8}}.</b>{{s8}}<br><img src="{{img8}}" alt=""></td>
+            </tr>
+            <tr>
+                <td><b>{{cnt9}}.</b>{{s6}}<br><img src="{{img9}}" alt=""></td>
+                <td><b>{{cnt10}}.</b>{{s7}}<br><img src="{{img10}}" alt=""></td>
+                <td><b>{{cnt11}}.</b>{{s8}}<br><img src="{{img11}}" alt=""></td>
+            </tr>
+            {{/bag}}
+        </table>
+    </div>
+{{/links}}
+
+
+</div>
+<!-- /.container -->
+<footer class="py-5 bg-dark">
+    <div class="container">
+        <p class="m-0 text-center text-white">Copyright &copy; Your Website 2017</p>
+    </div>
+    <!-- /.container -->
+</footer>
+<script src="vendor/jquery/jquery.min.js"></script>
+<script src="vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
+</body>
+</html>

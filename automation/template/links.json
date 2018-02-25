@@ -1,0 +1,122 @@
+[
+  {
+    "title": "Forex(1)",
+    "url": "http://www.investertech.com/tkchart/tkchart.asp?logo=&home=&banner=&stkname=EUR_USD+NZD_USD+AUD_USD+GBP_USD+USD_CAD+USD_CHF+EUR_CHF+EUR_CAD+EUR_AUD+AUD_CAD+AUD_NZD"
+  },
+  {
+    "title": "Forex(2)",
+    "url": "http://www.investertech.com/tkchart/tkchart.asp?logo=&home=&banner=&stkname=USD_JPY+GBP_JPY+EUR_JPY+CAD_JPY+AUD_JPY+CHF_JPY+NZD_JPY+EUR_GBP+GBP_CHF+GBP_AUD"
+  },
+  {
+    "title": "Major Indices",
+    "url": "http://www.investertech.com/tkchart/tkchart.asp?logo=&home=&banner=&stkname=$DJX0X+$COMPX+$SPX0X+$TYX0X+$RUT0X+SPTSE+$EUR0X+$JPN0X+$HKO0X+$MXY0X"
+  },
+  {
+    "title": "Industry Indices",
+    "url": "http://www.investertech.com/tkchart/tkchart.asp?logo=&home=&banner=&stkname=$VIX0X+$NYA0X+$XMI0X+$DJT0X+$DJU0X+$COMPX+$OEX+$NDX0X+$MID0X"
+  },
+  {
+    "title": "Sector Index1",
+    "url": "http://www.investertech.com/tkchart/tkchart.asp?logo=&home=&banner=&stkname=$CTN0X+$MSH0X+$XTC0X+$PHN0X+$IIX0X+$MOX0X+$SIS0X+$NWX0X+$XCI0X+$HWI0X+$ZOC0X"
+  },
+  {
+    "title": "Sector Index2",
+    "url": "http://www.investertech.com/tkchart/tkchart.asp?logo=&home=&banner=&stkname=$SMQ0X+$XBD0X+$BKX0X+$XAL0X+$XOI0X+$XNG0X+$BTK0X+$DRG0X+GLD+$DDX0X+OIL"
+  },
+  {
+    "title": "Nasdaq Indices",
+    "url": "http://www.investertech.com/tkchart/tkchart.asp?logo=&home=&banner=&stkname=QQQ+$NDX0X+$BANKX+$INDSX+$INSRX+$IXCOX+$IXTCX+$OFINX+$IXF0X+$VXN0X+$NBI0X+$CND0X"
+  },
+  {
+    "title": "DJI(1-10)",
+    "url": "http://www.investertech.com/tkchart/tkchart.asp?logo=&home=&banner=&stkname=AAPL+AXP+BA+GS+CAT+CSCO+CVX+DWDP+DIS+GE"
+  },
+  {
+    "title": "DJI(11-20)",
+    "url": "http://www.investertech.com/tkchart/tkchart.asp?logo=&home=&banner=&stkname=HD+NKE+IBM+INTC+JNJ+JPM+UNH+KO+MCD+MMM"
+  },
+  {
+    "title": "DJI(21-30)",
+    "url": "http://www.investertech.com/tkchart/tkchart.asp?logo=&home=&banner=&stkname=MRK+MSFT+PFE+PG+V+TRV+UTX+VZ+WMT+XOM"
+  },
+  {
+    "title": "Tech Stocks",
+    "url": "http://www.investertech.com/tkchart/tkchart.asp?logo=&home=&banner=&stkname=MSFT+INTC+DELL+CSCO+JDSU+ORCL+AMAT+GOOG+IBM+BRCM+AAPL+SYMC"
+  },
+  {
+    "title": "Internet",
+    "url": "http://www.investertech.com/tkchart/tkchart.asp?logo=&home=&banner=&stkname=SOHU+EGOV+GOOG+TWX+AMZN+ELNK+INSP+AABA+CMGI+PCLN+EBAY+SINA"
+  },
+  {
+    "title": "Computer",
+    "url": "http://www.investertech.com/tkchart/tkchart.asp?logo=&home=&banner=&stkname=AAPL+CCUR+UTX+GTW+HPQ+IBM+BVSN+SUNW+UIS+MIPS+MRCY+AKAM"
+  },
+  {
+    "title": "Semiconductors",
+    "url": "http://www.investertech.com/tkchart/tkchart.asp?logo=&home=&banner=&stkname=INTC+NSM+AMAT+MU+TXN+AMD+ALTR+XLNX+KLAC+IDTI+MRVL+BRCM"
+  },
+  {
+    "title": "Software",
+    "url": "http://www.investertech.com/tkchart/tkchart.asp?logo=&home=&banner=&stkname=ADBE+CA+VRSN+MSFT+ORCL+CHKP+CTXS+SYMC+ERTS+CTSH+PMTC+ADSK"
+  },
+  {
+    "title": "Network",
+    "url": "http://www.investertech.com/tkchart/tkchart.asp?logo=&home=&banner=&stkname=ARBA+JDSU+CSCO+FFIV+CERN+EXTR+JNPR+CIEN+TLAB+JKHY+CVG+EBIX"
+  },
+  {
+    "title": "Telecom",
+    "url": "http://www.investertech.com/tkchart/tkchart.asp?logo=&home=&banner=&stkname=VZ+ERIC+QCOM+MMI+ALA+NOK+T+LLL+AT+AMT+AMX+MBT"
+  },
+  {
+    "title": "Cable",
+    "url": "http://www.investertech.com/tkchart/tkchart.asp?logo=&home=&banner=&stkname=T+CMCSK+CCU+DISH+CVC+CMCSA+SIRI+CHTR+EMMS+DIS+TIVO+SBGI"
+  },
+  {
+    "title": "Hardware",
+    "url": "http://www.investertech.com/tkchart/tkchart.asp?logo=&home=&banner=&stkname=IM+EMC+NTAP+MIPS+WDC+IDTI+EFII+DGII+SNDK+MXWL"
+  },
+  {
+    "title": "Autos",
+    "url": "http://www.investertech.com/tkchart/tkchart.asp?logo=&home=&banner=&stkname=F+TM+HMC+GPC+AZO+IR+PCAR+NAV+OSK+WNC"
+  },
+  {
+    "title": "Airline",
+    "url": "http://www.investertech.com/tkchart/tkchart.asp?logo=&home=&banner=&stkname=LUV+BAB+ALK+JBLU+AIRT+AMR+CAL+HA+ZNH+SKYW+FDX"
+  },
+  {
+    "title": "Banks",
+    "url": "http://www.investertech.com/tkchart/tkchart.asp?logo=&home=&banner=&stkname=BAC+C+FITB+JPM+AXP+NCC+WFC+NTRS+USB+WB+BK+STD"
+  },
+  {
+    "title": "Fin-Invest",
+    "url": "http://www.investertech.com/tkchart/tkchart.asp?logo=&home=&banner=&stkname=GS+LM+SCHW+AMG+BEN+CME+MATD+JEF+TROW+FBR"
+  },
+  {
+    "title": "Drugs & Medical Product",
+    "url": "http://www.investertech.com/tkchart/tkchart.asp?logo=&home=&banner=&stkname=LLY+MRK+PFE+JNJ+SGP+BAX+GDT+MDT+STJ+BSX+KG+CAH+MEDI"
+  },
+  {
+    "title": "Health Care",
+    "url": "http://www.investertech.com/tkchart/tkchart.asp?logo=&home=&banner=&stkname=EYE+HUM+UNH+AET+WLP+THC+DNDN+HCR+ESRX+CVH"
+  },
+  {
+    "title": "Biotechs",
+    "url": "http://www.investertech.com/tkchart/tkchart.asp?logo=&home=&banner=&stkname=AMGN+ABC+GILD+HGSI+CELG+MYL+SPPI+WPI+CVD+TEVG+CVM"
+  },
+  {
+    "title": "Oil-Intgd/Serv",
+    "url": "http://www.investertech.com/tkchart/tkchart.asp?logo=&home=&banner=&stkname=SU+CAM+CVX+XOM+MRO+KMG+HAL+SLB+BHI+WFT+BJS+GSF"
+  },
+  {
+    "title": "Oil/Gas Dril",
+    "url": "http://www.investertech.com/tkchart/tkchart.asp?logo=&home=&banner=&stkname=COG+RIG+SLB+NE+NBR+RDC+ESV+DO+GW+HAL+VLO+COP"
+  },
+  {
+    "title": "Retail",
+    "url": "http://www.investertech.com/tkchart/tkchart.asp?logo=&home=&banner=&stkname=ANF+S+TIF+GPS+AEOS+BKS+BBY+CC+WMT+RSH+GME+HD"
+  },
+  {
+    "title": "Foods",
+    "url": "http://www.investertech.com/tkchart/tkchart.asp?logo=&home=&banner=&stkname=CAG+HSY+SYY+HNZ+KR+YUM+TSN+CKR+PZZA+SLE+GIS+K"
+  }
+]
