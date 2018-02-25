@@ -3,7 +3,7 @@ import re
 import pymustache
 
 
-
+STOCK_COUNT = 0
 
 
 def generate_mustache_map(symble_name, count, mdict):
@@ -14,6 +14,7 @@ def generate_mustache_map(symble_name, count, mdict):
     :param mdict:
     :return:
     '''
+    global STOCK_COUNT
     datestring = datetime.date.today().strftime("%Y%m%d")
     m = re.match(r"\(([\w|\$]+)\)", symble_name)
     if (m ):
@@ -24,9 +25,12 @@ def generate_mustache_map(symble_name, count, mdict):
     #    sy = symble_name
         ks = "s%d"%count
         kimg = "img%d"%count
+        kcnt = "cnt%d"%count
         image_name= sy + datestring + ".gif"
         mdict[ks] = symble_name
         mdict[kimg] = image_name
+        STOCK_COUNT += 1
+        mdict[kcnt] = STOCK_COUNT
     return
 
 def generate_output( file_in,file_out, m_dict,toptag="bag"):
@@ -65,3 +69,7 @@ def mod_dict(bag,prefix):
         else:
             bag_mod[k] = v
     return bag_mod
+
+def get_stock_count():
+    global STOCK_COUNT
+    return STOCK_COUNT

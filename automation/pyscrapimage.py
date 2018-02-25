@@ -10,7 +10,7 @@ import time
 from selenium.webdriver.remote.webelement import WebElement
 from selenium.webdriver.common.keys import Keys
 
-from  template_process import generate_output , mod_dict, generate_mustache_map
+from  template_process import generate_output , mod_dict, generate_mustache_map,get_stock_count
 
 import platform
 
