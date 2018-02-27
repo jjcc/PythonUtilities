@@ -14,6 +14,8 @@ from  template_process import generate_output , mod_dict, generate_mustache_map,
 
 import platform
 
+import os
+
 chrome_path = r"E:\Software\ChromeDriver\chromedriver.exe"
 #target_url =
 #stock1 = "http://www.investertech.com/tkchart/tkchart.asp?logo=&home=/default.asp&banner=&stkname=MSFT+INTC+DELL+CSCO+JDSU+ORCL+AMAT+GOOG+IBM+BRCM+AAPL+SYMC"
@@ -104,6 +106,7 @@ def get_image_by_url( browser, stock,dir = ""):
 #    print(title + ': ' + value)
 if __name__ == "__main__":
     t0 = time.time()
+    path, fl = os.path.split(os.path.realpath(__file__))
     #prepare directory
     #import pathlib
     try:
@@ -112,8 +115,8 @@ if __name__ == "__main__":
         from pathlib2 import Path  # python 2 backport
 
     datestring = datetime.date.today().strftime("%Y%m%d")
-    Path('data/' + datestring).mkdir(parents=True, exist_ok=True)
-    target_dir = 'data/' + datestring + '/'
+    Path(os.path.join(path,'data/' + datestring)).mkdir(parents=True, exist_ok=True)
+    target_dir = os.path.join(path,'data/' + datestring + '/')
 
     import json
     ##Generate a json file of map list for links/text
@@ -131,7 +134,7 @@ if __name__ == "__main__":
     #     json.dump(links, fout)
 
     ##load json into a list
-    with open('data/links.json',"r") as fin:
+    with open(os.path.join(path,'data/links.json'),"r") as fin:
         links = json.load( fin)
 
     #less loops
@@ -153,8 +156,8 @@ if __name__ == "__main__":
         #if mycount > 6:
         #    break
     browser.quit()
-    output_file = "data/" + datestring + ".html"
-    generate_output("data/templateall.html",output_file,links,"links")
+    output_file = os.path.join(path,"data/" + datestring + ".html")
+    generate_output(os.path.join(path,"data/templateall.html"),output_file,links,"links")
     # bag2 = mod_dict(bag,"20180218/")
 
     t1 = time.time()
@@ -165,9 +168,9 @@ if __name__ == "__main__":
     datestring_inmain = datetime.date.today().strftime("%Y-%m-%d")
     replacing = "<div class='row'><a href='%s.html'>%s</a></div>\n"%(datestring,datestring_inmain) + place_holder
 
-    with open ("data/main2.html","r") as main_f:
+    with open (os.path.join(path,"data/index.html"),"r") as main_f:
         main_data = main_f.read()
     new_main = main_data.replace(place_holder, replacing)
     #print(new_main)
-    with open ("data/main2.html","w") as output_f:
+    with open (os.path.join(path,"data/index.html"),"w") as output_f:
         output_f.write(new_main)
