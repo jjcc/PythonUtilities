@@ -68,7 +68,7 @@ def get_image_by_url( browser, stock,dir = ""):
             if stock_symbol.find('$') != -1:
                 stock_symbol = stock_symbol.replace("$","x")
 
-        print("match" + imgn + ", name:" + stock_symbolname + ",symbol:" + stock_symbol )
+        #print("match" + imgn + ", name:" + stock_symbolname + ",symbol:" + stock_symbol )
         count += 1
         image_name= stock_symbol + datestring + ".gif"
         image_name = dir + image_name
