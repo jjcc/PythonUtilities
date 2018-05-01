@@ -164,8 +164,9 @@ if __name__ == "__main__":
     total = t1 - t0
     print("duration:" + str(total) )
 
-    place_holder = "<!-- ph -->"
     datestring_inmain = datetime.date.today().strftime("%Y-%m-%d")
+    month = datestring_inmain.split("-")[1]
+    place_holder = "<!-- ph{} -->".format(month)
     replacing = "<div class='row'><a href='%s.html'>%s</a></div>\n"%(datestring,datestring_inmain) + place_holder
 
     with open (os.path.join(path,"data/index.html"),"r") as main_f:
