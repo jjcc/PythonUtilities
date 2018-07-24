@@ -153,8 +153,8 @@ if __name__ == "__main__":
         bag2 = mod_dict(bag,datestring+"/")
         l["bag"] = bag2
         mycount +=1
-        #if mycount > 6:
-        #    break
+        if mycount > 6:
+            break
     browser.quit()
     output_file = os.path.join(path,"data/" + datestring + ".html")
     generate_output(os.path.join(path,"data/templateall.html"),output_file,links,"links")

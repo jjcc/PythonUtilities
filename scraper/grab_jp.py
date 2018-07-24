@@ -24,15 +24,17 @@ if __name__ == '__main__':
 
     cid = 566921
     url_address = "https://iknow.jp/courses/%d"%cid
-    total = get_param(ghost,url_address)
+    #total = get_param(ghost,url_address)
     # f = open("record.txt","wt+",encoding="UTF-8")
     #ofile_name = "record_%d.txt"%cid
     #ofile = codecs.open(ofile_name, "w", "utf-8")
-
+    voclist = ghost.findElements(By.xpath("//li"))
+    for i in voclist:
+        print(i)
 
     #for j in range(0, total):
     current_page = ghost.find_element_by_css_selector('.items').text
-    print "current page:" + current_page
+    print("current page:" + current_page)
     k = 0
     #    get_transaction_from_page(ofile, ghost, int(current_page), total)
 
