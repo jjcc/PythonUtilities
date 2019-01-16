@@ -26,7 +26,7 @@ def get_transaction_from_page(output_file,driver,c_pg,max_pg):
     no = driver.find_elements_by_css_selector('table.tab08 td.td5')
     res = driver.find_elements_by_css_selector('table.tab08 td.td7')
     leng = len(stock)
-    print "list length%d" % leng
+    print ("list length%d" % leng)
     for i in range(0, leng):
         line = []
         #print i
@@ -57,20 +57,20 @@ def get_transaction_from_page(output_file,driver,c_pg,max_pg):
 
     new_page = c_pg + 1
     if new_page > max_pg:
-        print "<<<Reach max, return"
+        print ("<<<Reach max, return")
         return 0
 
 
     next_bt = driver.find_element_by_css_selector('#next')
     next_bt.click()
     # driver.implicitly_wait(6)
-    print ">>>....Waiting newpage: page%d" % new_page
+    print (">>>....Waiting newpage: page%d" % new_page)
     wait = WebDriverWait(driver, 10)
     element = wait.until(EC.text_to_be_present_in_element((By.CSS_SELECTOR, '.hover.num.on'), str(new_page)))
     page = "./tmp/pageexit%d.png" % c_pg
     driver.save_screenshot(page)
-    print "saved %s" % page
-    print "<<<Done Waiting"
+    print ("saved %s" % page)
+    print ("<<<Done Waiting")
     return 1
 
 
@@ -82,14 +82,14 @@ def get_total_no( driver, url ):
         print(driver.find_element_by_id("total").text)
     total_txt = driver.find_element_by_id("total").text
     total_no = int(total_txt.replace('/', ''))
-    print "page number total(init)is %d" % total_no
+    print ("page number total(init)is %d"%total_no)
     driver.save_screenshot("./tmp/mypageB4Sleep.png")
     time.sleep(3)
     driver.save_screenshot("./tmp/mypageAfterSleep.png")
     table = driver.find_elements_by_class_name("tab08")
     total_page = driver.find_element_by_id('total').text
-    print total_page
+    print (total_page)
     total_no = int(total_page.replace('/', ''))
-    print "page number total(now) is %d" % total_no
+    print ("page number total(now) is %d" % total_no)
 
     return total_no

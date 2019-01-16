@@ -6,7 +6,7 @@ from helper import get_transaction_from_page, get_total_no
 webdriver.DesiredCapabilities.PHANTOMJS['phantomjs.page.customHeaders.Accept-Language'] = 'en-US,en'
 webdriver.DesiredCapabilities.PHANTOMJS['phantomjs.page.customHeaders.User-Agent'] \
     = 'Mozilla/5.0 (Windows NT 10.0; Win64; x64; rv:47.0) Gecko/20100101 Firefox/47.0'
-ghost = webdriver.PhantomJS(executable_path='E:/software/phantomjs-2.0.0-windows/bin/phantomjs.exe')
+ghost = webdriver.PhantomJS(executable_path='E:/Software/PhantomJs/phantomjs-2.1.1-windows/bin/phantomjs.exe')
 
 
 
@@ -22,7 +22,7 @@ if __name__ == '__main__':
 
     for j in range(0, total):
         current_page = ghost.find_element_by_css_selector('.hover.num.on').text
-        print "current page:" + current_page
+        print ("current page:" + current_page)
         k = 0
         get_transaction_from_page(ofile, ghost, int(current_page), total)
 
