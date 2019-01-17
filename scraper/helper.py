@@ -77,7 +77,7 @@ def get_transaction_from_page(output_file,driver,c_pg,max_pg):
 def get_total_no( driver, url ):
     driver.get(url)
     try:
-        element = WebDriverWait(driver, 10).until(EC.presence_of_element_located((By.ID, "lossDiv")))
+        element = WebDriverWait(driver, 20).until(EC.presence_of_element_located((By.ID, "lossDiv")))
     finally:
         print(driver.find_element_by_id("total").text)
     total_txt = driver.find_element_by_id("total").text

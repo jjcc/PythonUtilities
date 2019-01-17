@@ -9,6 +9,9 @@ webdriver.DesiredCapabilities.PHANTOMJS['phantomjs.page.customHeaders.User-Agent
 ghost = webdriver.PhantomJS(executable_path='E:/Software/PhantomJs/phantomjs-2.1.1-windows/bin/phantomjs.exe')
 
 
+#Chrome
+#E:\Software\chromedriver_win32
+#ghost = webdriver.Chrome('E:\\Software\\chromedriver_win32\\chromedriver.exe')
 
 
 if __name__ == '__main__':
